@@ -1,3 +1,3 @@
 # sml-test
 
-To start app imput in console "npm start".
+To start app input in console "npm start".
