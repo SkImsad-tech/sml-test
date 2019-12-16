@@ -1,0 +1,199 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"IListRes": {
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"fio": {
+					"type": "string"
+				},
+				"score": {
+					"type": "string"
+				},
+				"birthday": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"fio",
+				"score",
+				"birthday"
+			],
+			"type": "object",
+			"additionalProperties": true
+		},
+		"IAddReq": {
+			"properties": {
+				"fio": {
+					"type": "string"
+				},
+				"score": {
+					"type": "string"
+				},
+				"birthday": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"fio",
+				"score",
+				"birthday"
+			],
+			"type": "object",
+			"additionalProperties": true
+		},
+		"IUpdateReq": {
+			"properties": {
+				"fio": {
+					"type": "string",
+					"x-nullable": true
+				},
+				"score": {
+					"type": "string",
+					"x-nullable": true
+				},
+				"birthday": {
+					"type": "string",
+					"x-nullable": true
+				}
+			},
+			"type": "object",
+			"additionalProperties": true
+		}
+	},
+	"info": {
+		"title": "back",
+		"version": "1.0.0",
+		"description": "back for test front idk what to say",
+		"license": {
+			"name": "UNLICENSED"
+		}
+	},
+	"paths": {
+		"/pupils/list": {
+			"get": {
+				"operationId": "GetAll",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/IListRes"
+							},
+							"type": "array"
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/pupils/add": {
+			"post": {
+				"operationId": "Create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "string"
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"body": {
+									"$ref": "#/definitions/IAddReq"
+								}
+							},
+							"title": "CreateBody",
+							"type": "object",
+							"required": [
+								"body"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/pupils/{id}": {
+			"put": {
+				"operationId": "Update",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"body": {
+									"$ref": "#/definitions/IUpdateReq"
+								}
+							},
+							"title": "UpdateBody",
+							"type": "object",
+							"required": [
+								"body"
+							]
+						}
+					}
+				]
+			},
+			"delete": {
+				"operationId": "Remove",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}
