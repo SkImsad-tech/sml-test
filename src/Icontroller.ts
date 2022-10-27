@@ -5,7 +5,7 @@ interface IAddReq {
 }
 
 interface IListRes {
-  id: string,
+  id: string;
   fio: string;
   score: string;
   birthday: string;
@@ -17,9 +17,4 @@ interface IUpdateReq {
   birthday?: string;
 }
 
-
-export {
-  IUpdateReq,
-  IAddReq,
-  IListRes
-}
+export { IUpdateReq, IAddReq, IListRes };
