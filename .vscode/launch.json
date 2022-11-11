@@ -8,12 +8,10 @@
       "name": "Launch via debugger",
       "type": "node",
       "request": "launch",
-      "skipFiles": [
-        "<node_internals>/**",
-        "!**/node_modules/**",
-      ],
+      "skipFiles": ["<node_internals>/**", "!**/node_modules/**"],
       "program": "${workspaceFolder}/index.ts",
-      "preLaunchTask": "npm: debug",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["app"],
       "outFiles": ["${workspaceFolder}/out/**/*.js"]
     }
   ]

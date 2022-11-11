@@ -1,11 +1,10 @@
 {
-  "swagger": {
-    "outputDirectory": "./",
-    "entryFile": "./src/app.ts"
+  "entryFile": "src/app.ts",
+  "spec": {
+    "outputDirectory": "build",
+    "specVersion": 3
   },
   "routes": {
-    "basePath": "/",
-    "entryFile": "./src/app.ts",
-    "routesDir": "./src"
+    "routesDir": "build"
   }
 }

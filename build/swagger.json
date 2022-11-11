@@ -1,0 +1,223 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ObjectId": {
+				"type": "string",
+				"description": "A class representation of the BSON ObjectId type."
+			},
+			"IListRes": {
+				"properties": {
+					"id": {
+						"$ref": "#/components/schemas/ObjectId"
+					},
+					"fio": {
+						"type": "string"
+					},
+					"score": {
+						"type": "string"
+					},
+					"birthday": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"fio",
+					"score",
+					"birthday"
+				],
+				"type": "object",
+				"additionalProperties": true
+			},
+			"IAddReq": {
+				"properties": {
+					"fio": {
+						"type": "string"
+					},
+					"score": {
+						"type": "string"
+					},
+					"birthday": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"fio",
+					"score",
+					"birthday"
+				],
+				"type": "object",
+				"additionalProperties": true
+			},
+			"IUpdateReq": {
+				"properties": {
+					"fio": {
+						"type": "string"
+					},
+					"score": {
+						"type": "string"
+					},
+					"birthday": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": true
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "back",
+		"version": "1.0.0",
+		"description": "back for test front idk what to say",
+		"license": {
+			"name": "UNLICENSED"
+		},
+		"contact": {
+			"name": "Lysak"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/pupils/list": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/IListRes"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PupilController"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/pupils/add": {
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"PupilController"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"body": {
+										"$ref": "#/components/schemas/IAddReq"
+									}
+								},
+								"required": [
+									"body"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/pupils/{id}": {
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"PupilController"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"body": {
+										"$ref": "#/components/schemas/IUpdateReq"
+									}
+								},
+								"required": [
+									"body"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "Remove",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"PupilController"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
