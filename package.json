@@ -4,20 +4,21 @@
   "description": "back for test front idk what to say",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "oldStart": "node src/index.js",
-    "start": "npm i & nodemon -x ts-node src/index.ts",
-    "debug": "nodemon -x ts-node src/index.ts",
-    "generate": "tsoa routes && tsoa swagger"
+    "app": "yarn generate & nodemon -x ts-node src/index.ts",
+    "start": "yarn & yarn app",
+    "generate": "yarn routes & tsoa swagger",
+    "routes": "tsoa routes",
+    "docker-compose": "docker-compose up -d"
   },
   "keywords": [
-    "backend"
+    "sml backend"
   ],
   "author": "Lysak",
   "license": "UNLICENSED",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mongodb": "^4.11.0",
     "swagger-ui-express": "^4.1.2",
