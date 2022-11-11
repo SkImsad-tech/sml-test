@@ -20,6 +20,6 @@ There you'll see all existing routes, request payloads examples and can try them
 
 ## dependencies
 
-- node
+- node (used 18.11.0)
 - docker
 - docker-compose
