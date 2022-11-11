@@ -6,7 +6,7 @@ Mongo supposed to be installed on port `27017` cause in config app tries to acce
 
 ## start app
 
-command `yarn docker-compose`
+command `yarn compose`
 
 default address: `http://localhost:3001`
 
