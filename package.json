@@ -1,7 +1,7 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "back for test front idk what to say",
+  "description": "back for sml test work",
   "main": "index.js",
   "scripts": {
     "app": "yarn generate & nodemon -x ts-node src/index.ts",
